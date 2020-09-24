@@ -12,9 +12,9 @@ import com.capg.fms.entity.UserBean;
 import com.capg.fms.exceptions.UserException;
 
 @Service
-@Transactional
+
 public class UserServiceImpl implements IUserService {
-	@Autowired(required = true)
+	@Autowired
 	UserRepository userRepository;
 
 	@Override

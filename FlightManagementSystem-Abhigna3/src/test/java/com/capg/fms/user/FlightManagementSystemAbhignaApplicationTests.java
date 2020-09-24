@@ -2,9 +2,6 @@ package com.capg.fms.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,19 +24,6 @@ class FlightManagementSystemAbhignaApplicationTests {
 	private UserServiceImpl userService;
 	@MockBean
 	private UserRepository userRepo;
-
-	@Test
-	public void addUser() {
-		UserBean bean = mock(UserBean.class);
-		userService.addUser(bean);
-		verify(userRepo).save(bean);
-	}
-
-	@Test
-	public void viewUser() {
-		userService.viewUser();
-		verify(userRepo).findAll();
-	}
 
 	@Test
 	public void testAddUser() {
@@ -76,7 +60,7 @@ class FlightManagementSystemAbhignaApplicationTests {
 		userlist.add(user2);
 		Mockito.when(userRepo.findAll()).thenReturn(userlist);
 		assertThat(userService.viewUser()).isEqualTo(userlist);
-		assertEquals(userlist.size(),2);
+		assertEquals(userlist.size(), 2);
 	}
 
 }
